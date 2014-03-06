@@ -24,6 +24,8 @@ public class FindCycle {
 		Node<Integer> result = fc.findCycle(node1);
 		if (result != null) {
 			System.out.println(result.data);
+		} else {
+		  System.out.println("No cycle");
 		}
 		
 	}

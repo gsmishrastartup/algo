@@ -22,15 +22,24 @@ public class ReverseList {
 	}
 
 	private static Node<String> reverse(Node<String> node) {
-		Node<String> first = node;
-		Node<String> previous = null;
-		while (first != null) {
-			Node<String> second = first.next;
-			first.next = previous;
-			previous = first;
-			first = second;
-		}
+	  if (node == null) return null;
+	  if (node.next == null) return node;
+	  Node<String> second = node.next;
+	  node.next = null;
+	  
+	  Node<String> reversed = reverse(second);
+	  
+	  second.next = node;
+	  
+//		Node<String> first = node;
+//		Node<String> previous = null;
+//		while (first != null) {
+//			Node<String> second = first.next;
+//			first.next = previous;
+//			previous = first;
+//			first = second;
+//		}
 		
-		return previous;
+		return reversed;
 	}
 }
