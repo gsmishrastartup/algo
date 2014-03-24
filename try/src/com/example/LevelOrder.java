@@ -3,7 +3,8 @@ package com.example;
 public class LevelOrder {
 
 	public static void main(String[] args) {
-		
+		char anc = 'b';
+	  System.out.println((int) anc);
 		NodeBinary<String> nb1 = new NodeBinary<String>();
 		NodeBinary<String> nb2 = new NodeBinary<String>();
 		NodeBinary<String> nb3 = new NodeBinary<String>();
