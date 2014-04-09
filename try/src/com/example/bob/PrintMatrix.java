@@ -23,5 +23,12 @@ public class PrintMatrix {
         System.out.println(a[i--][j++]);
       }
     }
+    for (int k =1; k < n; k++) {
+      int j = k;
+      int i = 2;
+      while (j < n && i >=0) {
+        System.out.println(a[i--][j++]);
+      }
+    }
   }
 }

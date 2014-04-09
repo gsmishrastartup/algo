@@ -15,6 +15,7 @@ public class BinarySearchTreeImpl implements BinarySearchTree {
     bst.insert(7);
     bst.insert(1);
     bst.insert(5);
+    bst.insert(6);
     System.out.println("Search for 6: " + bst.search(6));
     System.out.println("Search for 5: " + bst.search(5));
     System.out.print("Inorder: ");
@@ -29,6 +30,7 @@ public class BinarySearchTreeImpl implements BinarySearchTree {
     System.out.println("Max Value: " + bst.maxValue());
     System.out.println("Print All Paths: ");
     bst.printAllPaths();
+    System.out.println("LCA Value: " + bst.findLca(2, 7));
   }
   @Override
   public boolean search(int value) {
@@ -226,8 +228,14 @@ public class BinarySearchTreeImpl implements BinarySearchTree {
   }
   @Override
   public int findLca(int a, int b) {
-    // TODO Auto-generated method stub
-    return 0;
+    return findLca(root, a, b);
+  }
+  private int findLca(Node n, int a, int b) {
+    if (n == null) return 0;
+    if (a < n.value && b < n.value) return findLca(n.left, a, b);
+    else if (a > n.value && b > n.value) return findLca(n.right, a, b);
+    else if (a < n.value && n.value < b) return n.value;
+    else return 0;
   }
 
 }

@@ -15,10 +15,10 @@ public class Heapsort {
   public void sort(int[] arr) {
     int N = arr.length -1;
     heapify(arr, N);
-//    while (N > 1) {
-//      swap(arr, 1, N--);
-//      sink(arr, N, 1);
-//    }
+    while (N > 1) {
+      swap(arr, 1, N--);
+      sink(arr, N, 1);
+    }
   }
 
   private void heapify(int[] arr, int N) {
