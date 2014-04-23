@@ -2,6 +2,8 @@ package com.example.bob;
 
 import java.util.Arrays;
 
+import com.example.IsValidBinarySearchTree;
+
 public class BinarySearchTreeImpl implements BinarySearchTree {
 
   Node root;
@@ -31,6 +33,7 @@ public class BinarySearchTreeImpl implements BinarySearchTree {
     System.out.println("Print All Paths: ");
     bst.printAllPaths();
     System.out.println("LCA Value: " + bst.findLca(2, 7));
+    System.out.println(bst.isValid());
   }
   @Override
   public boolean search(int value) {
@@ -223,8 +226,9 @@ public class BinarySearchTreeImpl implements BinarySearchTree {
 
   private boolean isValid(Node n, int min, int max) {
     if (n == null) return true;
-    
-    return false;
+    return ((min < n.value && n.value < max)
+        && isValid(n.left, min, n.value)
+        && isValid(n.right, n.value, max));
   }
   @Override
   public int findLca(int a, int b) {
